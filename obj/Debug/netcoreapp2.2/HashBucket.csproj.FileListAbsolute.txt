@@ -1,0 +1,14 @@
+C:\Users\Evan\Develop\AuthNetRedux\PortionPivot\HashBucket\obj\Debug\netcoreapp2.2\HashBucket.csproj.CoreCompileInputs.cache
+C:\Users\Evan\Develop\AuthNetRedux\PortionPivot\HashBucket\obj\Debug\netcoreapp2.2\HashBucket.AssemblyInfoInputs.cache
+C:\Users\Evan\Develop\AuthNetRedux\PortionPivot\HashBucket\obj\Debug\netcoreapp2.2\HashBucket.AssemblyInfo.cs
+C:\Users\Evan\Develop\AuthNetRedux\PortionPivot\HashBucket\bin\Debug\netcoreapp2.2\HashBucket.deps.json
+C:\Users\Evan\Develop\AuthNetRedux\PortionPivot\HashBucket\bin\Debug\netcoreapp2.2\HashBucket.runtimeconfig.json
+C:\Users\Evan\Develop\AuthNetRedux\PortionPivot\HashBucket\bin\Debug\netcoreapp2.2\HashBucket.runtimeconfig.dev.json
+C:\Users\Evan\Develop\AuthNetRedux\PortionPivot\HashBucket\bin\Debug\netcoreapp2.2\HashBucket.dll
+C:\Users\Evan\Develop\AuthNetRedux\PortionPivot\HashBucket\bin\Debug\netcoreapp2.2\HashBucket.pdb
+C:\Users\Evan\Develop\AuthNetRedux\PortionPivot\HashBucket\obj\Debug\netcoreapp2.2\HashBucket.csprojAssemblyReference.cache
+C:\Users\Evan\Develop\AuthNetRedux\PortionPivot\HashBucket\obj\Debug\netcoreapp2.2\HashBucket.RazorAssemblyInfo.cache
+C:\Users\Evan\Develop\AuthNetRedux\PortionPivot\HashBucket\obj\Debug\netcoreapp2.2\HashBucket.RazorAssemblyInfo.cs
+C:\Users\Evan\Develop\AuthNetRedux\PortionPivot\HashBucket\obj\Debug\netcoreapp2.2\HashBucket.RazorTargetAssemblyInfo.cache
+C:\Users\Evan\Develop\AuthNetRedux\PortionPivot\HashBucket\obj\Debug\netcoreapp2.2\HashBucket.dll
+C:\Users\Evan\Develop\AuthNetRedux\PortionPivot\HashBucket\obj\Debug\netcoreapp2.2\HashBucket.pdb
