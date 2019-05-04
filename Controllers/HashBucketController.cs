@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using HashBucket.Models;
 using HashBucket.Models.DB;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -11,6 +12,7 @@ using Microsoft.Extensions.Logging;
 namespace HashBucket.Controllers
 {
     [Route("api/[controller]")]
+    [EnableCors("AllOrigins")]
     [ApiController]
     public class HashBucketController : ControllerBase
     {
@@ -31,6 +33,7 @@ namespace HashBucket.Controllers
         *  valid HashKeys
         ***/
         [HttpGet("{hashKey}")]
+        [EnableCors("AllowOrigin")]
         public ActionResult<string> Get(string hashKey)
         {
             log.Warn("Request body for key: " + hashKey);
@@ -56,13 +59,26 @@ namespace HashBucket.Controllers
         /***
          *  Input: exposed CORS-disabled API, key and value can be any string.
          *  Takes the stores the EncryptedValue in the DB with key HashKey
+         *  
+         *  If we attempt attempt to the key, we can either throw an exception (signaling to an attacker that this key is valid)
+         *  or overwrite the previous data. I'm unsure which option is preferable at this point, TODO: make this judgement based
+         *  on the application
         ***/
         [HttpPost]
+        [EnableCors("AllOrigins")]
         public IActionResult Post([FromBody] EncryptedKeyValue value)
         {
             log.Warn("Received key: " + value.HashKey + " and value: " + value.EncryptedValue);
             var x = _context.hashValues.Add(new EncryptedKeyValue() { HashKey = value.HashKey, EncryptedValue = value.EncryptedValue });
-            _context.SaveChanges();
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (Microsoft.EntityFrameworkCore.DbUpdateException e)
+            {
+                log.Error("Failed to update DB: " + e.Message + e.InnerException);
+            }
+
             return new OkResult();
         }
 
