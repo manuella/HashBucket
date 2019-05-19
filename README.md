@@ -6,7 +6,7 @@ This application is a personal experiment and a foray into security. I expect an
 that you may find here.
 
 Quick paste-bin like service with anonymous encryption using a legible shared secret key.
-
+```
 Store
                              Client                                         Storage (exposed)
 /----------------------------------------------------------------------\ /--------------------\
@@ -39,3 +39,4 @@ Retrieve
 |                   v            |
 |           Original Message     |
 +--------------------------------+
+```
