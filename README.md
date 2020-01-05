@@ -52,3 +52,53 @@ Retrieve
 |                Message         |
 +--------------------------------+
 ```
+
+
+Example:
+-Client stores a  key 'Foo' with a message 'Bar',
+-Client hashses 'Foo' to '987b82r309uh32r' and encrypts 'Bar' with key 'Foo'
+-Service receives hash key '987b82r309uh32r' and encrypted 'Bar'
+  Client requests 'Foo' 
+-Client retrieves message by hashing 'Foo' and navigating to that route '/987b82r309uh32r'.
+-Service receives hashed key '987b82r309uh32r' and grabs encrypted message 'Bar' from that key
+-Client unencrypts message '987b82r309uh32r' to 'Bar' with key 'Foo'
+
+ASSUMPTION: In a perfect world, all potential hash keys return some valid encrypted body, but not in the current sql implementation.
+(Garbage keys return indistinguishable garbage)
+
+So what can we do with this?
+
+If we add keys to the encrypted message, we can chain messages together.
+This yields a graph of encrypted blocks with opaque topography.
+
+For instance, given a single key, only its children (and recursively their children) can be accessed.
+No information can be gleaned about the rest of the graph.
+
+Let's say we're modeling a webportal for a hospital.
+
+Given some authorization token and subject ID , we want to divulge all information about that subject they (owner of the auth token) are permitted to access.
++ A doctor should be able to access ALL information about their patients.
++ A patient should be able to access ALL information about themselves and their doctor, but not their other patients
++ A adminstrative assistant should be able to view any information about a doctor or patient that relates directly to scheduling, but no other details
+
+'>' Designates that a particular node references (one way) another node
+'#' refers the the given access token of a role (patient,doctor,adminstrative assistant)
+'Get' ( requestor's auth token, subject ID token )
+
+Patient Confidential > Patient Internal > Patient Contact
+
+  
+Doctor Confidential  > Doctor Internal  > Doctor Contact
+                     > Patients
+
+
+Get(
+
+
+
+ 
+
+
+
+ 
+
